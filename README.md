@@ -1,17 +1,16 @@
-# DeMemSeg: A Deep Learning Pipeline for Yeast Prospore Membrane Segmentation and Analysis
+# DeMemSeg: Deep Learning Pipeline for Segmentation and Quantification of Overlapping Membranes in 2D Image
 ![DeMemSeg Logo](src/GraphicalAbst.png)
 
 ## Overview
-This repository provides a comprehensive pipeline, DeMemSeg, designed for the quantitative analysis of prospore membranes (PSMs) in sporulating yeast cells. The tools and scripts included facilitate:
+This repository provides a comprehensive pipeline, DeMemSeg, designed for the quantitative analysis of overlapping prospore membranes (PSMs) in sporulating yeast cells. The tools and scripts included facilitate:
 - Cropping individual yeast cells from 2D Maximum Intensity Projection (MIP) images derived from fluorescently labeled membrane stacks.
 - Segmenting the PSM within these cropped single-cell images using a custom-trained Mask R-CNN model.
-- Analyzing the shape and morphological characteristics of the segmented PSMs and visualizing the results. *(Optional: if analysis/visualization scripts are included)*
+- Analyzing the shape and morphological characteristics of the segmented PSMs and visualizing the results.
 
 DeMemSeg was developed to address the challenge of accurately segmenting overlapping PSMs, a common issue in 2D projected images.
 
 ## Hardware Requirements
-- **GPU**: NVIDIA GPU with CUDA support is essential for model training and inference (e.g., tested on RTX 3060, RTX 3090).
-- **RAM**: Minimum 16GB; 32GB or more is recommended, especially when handling large datasets or training models.
+- **GPU**: NVIDIA GPU with CUDA support is essential for model training and inference (tested on RTX 3060, VRAM 8GB).
 - **Storage**: Sufficient disk space for raw images, processed data, and model checkpoints.
 
 ## Software Prerequisites
@@ -24,9 +23,6 @@ Docker encapsulates the entire software environment, including all libraries and
 ### For Windows Users
 Windows users should utilize **WSL2 (Windows Subsystem for Linux 2)** with a compatible Linux distribution (e.g., Ubuntu 20.04 LTS or later). WSL2 provides a robust Linux environment on Windows that fully supports Docker and GPU acceleration.
 - For Docker installation on WSL2, see the [Docker Desktop WSL 2 backend documentation](https://docs.docker.com/desktop/wsl/).
-
-> **Why Docker?**
-> Setting up deep learning environments with specific GPU library versions (CUDA, cuDNN, PyTorch, TensorFlow, etc.) can be a significant hurdle. Docker containers pre-package all necessary components, ensuring version compatibility and greatly simplifying the setup process. This allows you to focus on the research rather than troubleshooting environment issues.
 
 ---
 <br>
@@ -77,7 +73,7 @@ Windows users should utilize **WSL2 (Windows Subsystem for Linux 2)** with a com
 The primary workflow is orchestrated through a Jupyter Notebook.
 
 1.  **Prepare Input Images**:
-    * Place your 2D MIP fluorescence images of yeast cells (e.g., TIFF files) into a designated input directory. For demonstration, sample images are provided in `demo_images/` (or specify actual path).
+    * Place your 2D MIP fluorescence images of yeast cells (e.g., TIFF files) into a designated input directory. For demonstration, sample images are provided in `demo_images/`.
     * The current pipeline is optimized for images with characteristics similar to those described below (see "Microscopy Image Specifications").
 
 2.  **Configure Parameters in the Main Notebook**:
@@ -101,6 +97,15 @@ The primary workflow is orchestrated through a Jupyter Notebook.
 4.  **Locate and Inspect Results**:
     * Segmented images, instance masks, and associated information (e.g., JSON files with coordinates/scores) will be saved to the output directory specified in the notebook. An example output structure might be within `/workspace/output/` or a similar directory relative to the repository root (e.g., `/workspace/output/Project_Name/Experiment_Name/segmented_images/`). *Please provide a clear example or default output path structure.*
     * *(Optional, if included)* Analysis results, such as CSV files or figures, will be saved in the `figure/` or `data/output/` directory as configured in the notebook/scripts.
+
+## DeMemSeg Input Format
+The DeMemSeg workflow begins with CellPose using 8-bit depth, RGB color images with a resolution of 2048x2048 pixels. While your microscopy specifications may differ, you can adapt the pipeline by training your own custom CellPose model. Once trained, provide the file path to your model, and the remaining DeMemSeg workflow can be executed as `main_DeMemSeg.ipynb`.
+**Note**: The required input format for the MMdetection-based segmentation model is 200x200 pixel images.
+
+## Running SAM 2
+If you are interested in running SAM 2, please refer to the SAM 2 GitHub repository: https://github.com/facebookresearch/sam2
+Our script and prompt for SAM2 are in `notebook/SAM2_PSM.ipynb`.
+
 
 ## Microscopy Image Specifications (Recommended for Optimal Performance)
 DeMemSeg was trained and validated on images with the following characteristics:
@@ -138,3 +143,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Contact
 For questions, issues, or contributions, please open an issue on this GitHub repository or contact [taguchi.shodai.td@gmail.com](mailto:taguchi.shodai.td@gmail.com).
+
