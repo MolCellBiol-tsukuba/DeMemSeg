@@ -1,5 +1,5 @@
 # DeMemSeg: Deep Learning Pipeline for Segmentation and Quantification of Overlapping Membranes in 2D Image
-![DeMemSeg Logo](src/GraphicalAbst.png)
+![DeMemSeg Logo](src/GraphicalAbstract_github.png)
 
 ## Overview
 This repository provides a comprehensive pipeline, DeMemSeg, designed for the quantitative analysis of overlapping prospore membranes (PSMs) in sporulating yeast cells. The tools and scripts included facilitate:
