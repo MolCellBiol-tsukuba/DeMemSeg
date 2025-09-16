@@ -136,7 +136,11 @@ DeMemSeg was trained and validated on images with the following characteristics:
 ## Citation
 If you use DeMemSeg or this repository in your research, please cite our publication:
 
-> [Shodai Taguchi, Keita Chagi, Hiroki Kawai, Kenji Irie, Yasuyuki Suda, Department of Molecular Cell Biology in University of Tsukuba and Science group in LPIXEL Inc.]. (2025). DeMemSeg: A Deep Learning Pipeline for Accurate Segmentation and Quantitative Analysis of Overlapping Prospore Membranes in 2D Projection Images. *Cell Structure and Function*, Vol(Issue), Pages. DOI: [Insert DOI when available]
+Published Article:
+>Taguchi, S., Chagi, K., Kawai, H., Irie, K. and Suda, Y. (2025). Deep learning-based segmentation of 2D projection-derived overlapping prospore membrane in yeast. Cell Structure and Function, 25032.
+
+Preprint:
+>Taguchi, S., Chagi, K., Kawai, H., Irie, K. and Suda, Y. (2025). Deep learning pipeline for segmentation and quantification of overlapping membranes in 2D image. bioRxiv, 2025.06.01.656963. https://doi.org/10.1101/2025.06.01.656963
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
