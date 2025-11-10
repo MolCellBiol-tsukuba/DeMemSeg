@@ -1,0 +1,1 @@
+JsonPath,ImageInfPath,ImagePath,ImageName,MaskIndex,Score,Area,Intensity,Ratio,Perimeter,Compactness,AspectRatio,Circularity,Roundness,CentroidX,CentroidY,HuMoment_1,HuMoment_2,HuMoment_3,HuMoment_4,HuMoment_5,HuMoment_6,HuMoment_7,FourierDescriptor1,FourierDescriptor2,FourierDescriptor3,FourierDescriptor4,FourierDescriptor5
