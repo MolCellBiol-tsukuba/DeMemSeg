@@ -29,7 +29,29 @@ Windows users should utilize **WSL2 (Windows Subsystem for Linux 2)** with a com
 
 ## Setup and Installation
 
+### Important: Downloading Model Weights (Git LFS)
+This repository uses **Git Large File Storage (LFS)** to host the pre-trained model weights (`.pth` files). Whether you are using Docker or running locally, you must use Git LFS to download the actual weight files. If you clone the repository without Git LFS, you will only download small text pointer files, which will cause `UnpicklingError` or `invalid load key` errors during model loading.
+
+1. **Install Git LFS**:
+   Ensure Git LFS is installed on your system. 
+   - Ubuntu/Debian: `sudo apt-get install git-lfs`
+   - Mac (Homebrew): `brew install git-lfs`
+   - Windows: Download from the [official website](https://git-lfs.github.com/).
+   
+   After installation, initialize it:
+   ```bash
+   git lfs install
+   ```
+2. **Clone the Repository and Pull Weight**:
+   ```bash
+   git clone [https://github.com/shoda6/DeMemSeg.git](https://github.com/shoda6/DeMemSeg.git)
+   cd DeMemSeg
+   git lfs pull
+   ```
+
 ### Building and Running the Docker Container
+We recommend to run through Docker Container. If you want to run locally created virtual env, plase see [README_LOCAL](./docs/local_setup_guide.md)
+
 1.  **Clone the Repository**:
     ```bash
     git clone https://github.com/shoda6/DeMemSeg.git

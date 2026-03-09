@@ -1,5 +1,5 @@
 import os
-from cellpose import models, io, plot
+from cellpose import models, io, plot, core
 from glob import glob
 import matplotlib.pyplot as plt
 import cv2
@@ -121,8 +121,9 @@ def pred_result(path_to_indir, prefix="Series*_Processed001_ch00.tif", bf_or_flu
     else:
         print("Please select BF or FLUO")
         sys.exit()
-        
-    model = models.CellposeModel(pretrained_model=model_path, gpu=True)
+
+    use_gpu = core.use_gpu()
+    model = models.CellposeModel(pretrained_model=model_path, gpu=use_gpu)
     imgs = []
     path_to_indir = path_to_indir
     list_of_imgs = glob(os.path.join(path_to_indir, prefix))

@@ -1,5 +1,3 @@
-# python venv
-.venv_DeMemSeg
 
 # inference data
 demo_image/Project000_YSIY884/CPsegm_PSM
@@ -7,3 +5,6 @@ demo_image/Project001_YSIY1448/CPsegm_PSM
 
 # mmdetection github repo
 mmdetection/*
+
+# pychache
+__pycache__

@@ -1,3 +1,6 @@
+import os
+os.environ["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"
+
 from mmdet.apis import DetInferencer
 import glob
 import os
